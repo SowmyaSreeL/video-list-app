@@ -1,7 +1,7 @@
 import '../scss/layout.scss';
 
 const Layout = (props) => {
-    const classes = "layout " + props.className;
+    const classes = "layout video__container " + props.className;
     return(
         <div className={classes}>
             {props.children}

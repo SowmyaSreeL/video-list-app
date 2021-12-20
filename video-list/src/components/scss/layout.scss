@@ -1,38 +1,25 @@
 .layout {
-    margin: 40px 0;
-    border-left: 1px solid rgba(0,0,0,0.1);
-    margin-left: 102px;
-    height: 100vh;
-
-    .ellipse-1 {
-        width: 21px;
-        height: 15px;
-        margin-left: 34px;
-        background: #E7AB11;
-        transform: rotate(9.53deg);
-        display: block;
-    }
-    .ellipse-2 {
-        width: 22px;
-        height: 22px;
-        margin-left: 44px;
-        background: #EE6363;
-        display: block;
-    }
-    .ellipse-3 {
-        width: 21px;
-        height: 15px;
-        margin-left: 45px;
-        background: #12B1B1;
-        transform: rotate(9.53deg);
-        display: block;
-    }
+    margin: 40px 0 0;
+    margin-right: 30px;
+    padding-left: 40px;
 }
 
-@media screen and(max-width: 798px) {
+@media screen and(max-width: 767px) {
     .layout {
-        margin-left:0;
-        border:0;
+        padding-left: 30px;
     }
 }
 
+
+@media screen and(min-width: 768px) and (max-width: 1023px) {
+    .main__container {
+        margin-left:70px;
+    }
+  }
+  
+  
+@media screen and(max-width: 767px) {
+    .main__container {
+        margin-left: 50px;
+    }
+}

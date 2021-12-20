@@ -1,20 +1,9 @@
-.video-signup-form__container {
+.video__container {
     position: relative;
-    h1 {
-        color: #222222;
-        font-size: 22px;
-        line-height: 33px;
-        font-weight: 500;
-        margin-left: 40px;
-    }
     form {
         width: 360px;
         margin: 0 auto;
         color: #000000;
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
     }
     .form-control {
         display: flex;
@@ -36,7 +25,7 @@
         line-height: 21px;
         margin-bottom: 6px;
     }
-    .video-signup-input {
+    .video-form-input {
         border-radius: 6px;
         height: 40px;
         padding: 8px 15px;
@@ -45,7 +34,7 @@
         line-height: 22px;
         font-weight: 500;
     }
-    .video-signup-button {
+    .video-form-button {
         border-radius: 6px;
         background: #46B13D;
         outline: 0;
@@ -66,11 +55,16 @@
             text-decoration: none;
         }
     }
-    .password-strength {
+    .password-strength,
+    .forgot-password {
         font-size: 12px;
         line-height: 18px;
         position: absolute;
         right: 0;
+    }
+    .forgot-password {
+        color: #3860AD;
+        text-decoration: none;
     }
     .err-text {
         color: red;
@@ -79,18 +73,11 @@
     }
 }
 
-@media screen and(max-width: 798px) {
-    .video-signup-form__container {
-        h1 {
-            margin-left: 30px;
-        }
+@media screen and(max-width: 767px) {
+    .video__container {
         form {
-            transform: unset;
-            margin-left: 30px;
-            margin-right: 30px;
             max-width: 360px;
             width: auto;
-            position: unset;
         }
     }
 }

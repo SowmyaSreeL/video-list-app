@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
 import Layout from '../Layout/Layout';
-import {Link} from "react-router-dom";
-import '../scss/login.scss';
+import Navbar from '../nav/Navbar';
+import {Link, useNavigate} from "react-router-dom";
 
 
-const Login = () => {
+const Login = (props) => {
+  const navigate = useNavigate();
   const [pwd, setPwd] = useState('');
   const [email, setEmail] = useState('');
 
@@ -13,6 +14,8 @@ const Login = () => {
 
   const [pwdValid, setPwdValid] = useState(false);
   const [emailValid, setEmailValid] = useState(false);
+
+  const [invalidCredentials, setInvalidcredentials] = useState(false)
 
   const loginUsers = [
       {
@@ -75,35 +78,44 @@ const Login = () => {
     }
 
     loginUsers.forEach(user => {
-        if(email === user.email && password === user.password) {
-            
+        if(email === user.email && pwd === user.password) {
+            const userObj = {"name":user.name,"email":email,"password":pwd};
+            props.userLogInData(userObj);
+            navigate('/my-account');
+            return;
         }
     });
+    setInvalidcredentials(true);
   };
  
   return (
-    <Layout className="video-signup-form__container">
-      <h1>Sign In</h1>
-      <form onSubmit={loginSubmitHandler}>
-          <div className="form-control">
-            <label htmlFor="email">Email address</label>
-            <input type="email" id="email" onChange={emailChangeHandler} onBlur={emailBlurHandler} className="video-signup-input" value={email} />
-            {emailTouched && !emailValid && <span className="err-text">please enter valid email</span>}
-          </div>
-          <div className="form-control">
-            <label htmlFor="password">New password</label>
-            <span className="password-strength"></span>
-            <input type="password" onChange={pwdChangehandler} id="password" onBlur={pwdBlurHandler} className="video-signup-input" value={pwd} />
-            {pwdTouched && !pwdValid && <span className="err-text">please enter valid password</span>}
-          </div>
-          <div className="form-control-btn">
-            <button type="submit" className="video-signup-button">Login</button>
-          </div>
-          <div>
-            <p className="existing-user">New User? <Link className="login" to="/signup">Sign Up</Link></p>
-          </div>
-      </form>
-    </Layout>
+    <>
+      <Navbar title="Sign In" loginStatus={props.loginStatus}/>
+      <Layout>
+        <form onSubmit={loginSubmitHandler}>
+            <div className="form-control">
+              <label htmlFor="email">Email address</label>
+              <input type="email" id="email" onChange={emailChangeHandler} onBlur={emailBlurHandler} className="video-form-input" value={email} placeholder="Enter your email" />
+              {emailTouched && !emailValid && <span className="err-text">please enter valid email</span>}
+            </div>
+            <div className="form-control">
+              <label htmlFor="password">Password</label>
+              <Link to="/signup" className="forgot-password">Forgot</Link>
+              <input type="password" onChange={pwdChangehandler} id="password" onBlur={pwdBlurHandler} className="video-form-input" value={pwd} placeholder="Enter your passowrd" />
+              {pwdTouched && !pwdValid && <span className="err-text">please enter valid password</span>}
+            </div>
+            <div>
+              {invalidCredentials && <span className="err-text">Invalid credentials</span>}
+            </div>
+            <div className="form-control-btn">
+              <button type="submit" className="video-form-button">Login</button>
+            </div>
+            <div>
+              <p className="existing-user">New User? <Link className="login" to="/signup">Sign Up</Link></p>
+            </div>
+        </form>
+      </Layout>
+    </>
   );
 };
 

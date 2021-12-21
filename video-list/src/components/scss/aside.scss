@@ -1,0 +1,36 @@
+.side-nav {
+    width: 100px;
+    height: 100vh;
+    border-right: 1px solid rgba(0, 0, 0, 0.1);
+    float: left;
+    position: relative;
+
+    ul {
+        padding-left: 0;
+        list-style-type: none;
+        left: 50%;
+        position: absolute;
+        top: 20%;
+        transform: translate(-50%, -20%);
+
+        li {
+            font-size: 40px;
+            color: #999999;
+            &:last-child {
+                padding-top: 45px;
+            }
+        }
+    }
+}
+
+@media screen and(max-width: 767px) {
+    .side-nav {
+        width: 50px;
+    }
+}
+
+@media screen and(min-width: 768px) and (max-width: 1023px) {
+    .side-nav {
+        width:70px;
+    }
+  }

@@ -1,7 +1,7 @@
 import "../scss/plan.scss";
 const Plan = (props) => {
     return (
-        <>
+        <div className="plan-details__conatiner">
             <div>
                 <h2>Free</h2>
                 <ul>
@@ -11,7 +11,7 @@ const Plan = (props) => {
                     <li>Maecenas eget luctus</li>
                     <li>Nullam vitae augue</li>
                 </ul>
-                <p>$0</p>
+                <p className="price">$0</p>
                 <button type="button">Downgrade</button>
             </div>
             <div>
@@ -23,7 +23,7 @@ const Plan = (props) => {
                     <li>Class aptent taciti</li>
                     <li>Ut blandit vestibulum</li>
                 </ul>
-                <p>$12</p>
+                <p className="price">$12</p>
                 <button type="button">Downgrade</button>
             </div>
             <div>
@@ -35,7 +35,7 @@ const Plan = (props) => {
                     <li>In hac habitasse platea</li>
                     <li>Nullam vitae augue</li>
                 </ul>
-                <p>$23</p>
+                <p className="price">$23</p>
                 <button type="button">Downgrade</button>
             </div>
             <div>
@@ -47,10 +47,10 @@ const Plan = (props) => {
                     <li>Curabitur eleifend</li>
                     <li>Quisque vel ex enim</li>
                 </ul>
-                <p>$43</p>
+                <p className="price">$43</p>
                 <button type="button">Downgrade</button>
             </div>
-        </>
+        </div>
     )
 }
 

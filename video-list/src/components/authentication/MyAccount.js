@@ -11,7 +11,6 @@ const MyAccount = (props) => {
     const [tabState, setTabState] = useState(1);
 
     const toggleTab = (index) => {
-        console.log(index);
         setTabState(index);
     }
 

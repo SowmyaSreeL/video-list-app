@@ -15,27 +15,33 @@ const Login = (props) => {
   const [pwdValid, setPwdValid] = useState(false);
   const [emailValid, setEmailValid] = useState(false);
 
-  const [invalidCredentials, setInvalidcredentials] = useState(false)
+  const [invalidCredentials, setInvalidcredentials] = useState(false);
+  // const[isLoggedin, setIsLoggedIn] = useState(false);
 
   const loginUsers = [
-      {
-          'email': 'test@gmail.com',
-          'password': 'Abc@123',
-          'name': 'Test'
-      },
-      {
-          'email': 'bot@gmail.com',
-          'password': 'Abc@123',
-          'name': 'Bot'
-      },
-      {
-          'email': 'dummy@gmail.com',
-          'password': 'Abc@123',
-          'name': 'Dummy'
-      }
-    ]
+    {
+        'email': 'test@gmail.com',
+        'password': 'Abc@123',
+        'name': 'Smith Johnson Williams'
+    },
+    {
+        'email': 'bot@gmail.com',
+        'password': 'Abc@123',
+        'name': 'James Robert Grigard'
+    },
+    {
+        'email': 'dummy@gmail.com',
+        'password': 'Abc@123',
+        'name': 'Mary Linda Jennifer'
+    }
+  ];
 
-
+  // useEffect(() => {
+  //   const isLoggedIn = localStorage.getItem("user_logged_in");
+  //   if(isLoggedIn) {
+  //     setIsLoggedIn(true);
+  //   }
+  // }, [])
   const emailChangeHandler = (e) => {
     const emailVal = e.target.value;
     setEmail(emailVal);
@@ -80,6 +86,7 @@ const Login = (props) => {
     loginUsers.forEach(user => {
         if(email === user.email && pwd === user.password) {
             const userObj = {"name":user.name,"email":email,"password":pwd};
+            // localStorage.setItem('user_logged_in',true);
             props.userLogInData(userObj);
             navigate('/my-account');
             return;

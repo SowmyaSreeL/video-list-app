@@ -27,7 +27,7 @@ const SignUp = (props) => {
   }
 
   const emailChangeHandler = (e) => {
-    const regExp = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+    const regExp = /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/;
     const emailVal = e.target.value;
     setEmail(emailVal);
 
@@ -97,7 +97,7 @@ const SignUp = (props) => {
       <Layout>
         <form onSubmit={submitHandler}>
             <div className="form-control">
-              <label htmlFor="fullname">Full name</label>
+              <label htmlFor="fullname">Full name(first name followed by last name)</label>
               <input type="text" id="fullname" onChange={nameChanegHandler} onBlur={nameBlurHandler} className="video-form-input" value={userName} placeholder="Enter your name" />
               {userNameTouched && !userNameValid && <span className="err-text">please enter valid username</span>}
             </div>
